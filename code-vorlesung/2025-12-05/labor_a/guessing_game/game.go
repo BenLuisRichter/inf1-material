@@ -1,12 +1,19 @@
 package guessinggame
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand/v2"
+)
 
 func GuessingGame() {
-	guess := ReadNumber()
-	if NumberGood(guess) {
-		fmt.Println("Richtig geraten :-)")
+	correct := rand.IntN(100) + 1
+	for n := 0; n < 3; n++ {
+		guess := ReadNumber()
+		if guess == correct {
+			fmt.Println("Richtig geraten :-)")
+			return //zurückspringen zum Anfang
+		}
 	}
 
-	fmt.Println("Zu viele falsche Zahlen")
+	fmt.Printf("Zu viele falsche Zahlen. Die richtige Zahl war %d!", correct)
 }
