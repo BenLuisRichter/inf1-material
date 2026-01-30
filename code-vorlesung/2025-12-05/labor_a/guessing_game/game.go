@@ -7,13 +7,12 @@ import (
 
 func GuessingGame() {
 	correct := rand.IntN(100) + 1
-	for n := 0; n < 3; n++ {
+	for i := 0; i < 3; i++ {
 		guess := ReadNumber()
-		if guess == correct {
+		if NumberGood(guess, correct) {
 			fmt.Println("Richtig geraten :-)")
-			return //zurückspringen zum Anfang
+			return
 		}
 	}
-
-	fmt.Printf("Zu viele falsche Zahlen. Die richtige Zahl war %d!", correct)
+	fmt.Printf("Zu viele falsche Zahlen, die richtige Zahl war %d.", correct)
 }
