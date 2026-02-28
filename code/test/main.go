@@ -25,11 +25,29 @@ func countDown(number int) {
 
 }
 
+func bubbleSort(arr []int) {
+	n := len(arr)
+	for i := 0; i < n; i++ {
+		// Optimierung: Nach 'i' Durchläufen sind die letzten 'i' Elemente sortiert
+		for j := 0; j < n-i-1; j++ {
+			if arr[j] > arr[j+1] {
+				// Vertauschen der Elemente
+				arr[j], arr[j+1] = arr[j+1], arr[j]
+			}
+		}
+	}
+}
+
 func main() {
 
 	fmt.Println(faktoriael(5)) // Ausgabe: 120
 
 	countDown(3)
+
+	items := []int{64, 34, 25, 12, 22, 11, 90}
+	fmt.Println("Unsortiert:", items)
+	bubbleSort(items)
+	fmt.Println("Sortiert:", items)
 
 	//for i := 1; i <= 3; i++ {
 	//	fmt.Println("Line", i)
